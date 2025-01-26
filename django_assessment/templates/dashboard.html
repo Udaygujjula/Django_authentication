@@ -1,0 +1,47 @@
+<!-- {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+  </head>
+  <body>
+    <div class="header">
+      <h1>Welcome to Your Dashboard</h1>
+    </div>
+    <div class="container">
+      <p>Hi, {{ user.username }}!</p>
+      <div class="links">
+        <a href="{% url 'profile' %}">Profile</a>
+        <a href="{% url 'change_password' %}">Change Password</a>
+        <a href="{% url 'logout' %}">Logout</a>
+      </div>
+    </div>
+  </body>
+</html> -->
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Your Profile Dashboard</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <header class="main-header">
+        <h1>Welcome Back, {{ user.username }}!</h1>
+    </header>
+    
+    <section class="dashboard-section">
+        <p>Hello, {{ user.username }}! Glad to see you again.</p>
+        <nav class="dashboard-links">
+            <a href="{% url 'profile' %}" class="nav-link">View Profile</a>
+            <a href="{% url 'change_password' %}" class="nav-link">Update Password</a>
+            <a href="{% url 'logout' %}" class="nav-link logout-btn">Log Out</a>
+        </nav>
+    </section>
+</body>
+</html>

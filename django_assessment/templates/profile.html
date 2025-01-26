@@ -1,0 +1,69 @@
+<!-- {% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Profile</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+  </head>
+  <body>
+    <div class="profile-container">
+      <div class="profile-header">
+        <h1>Welcome, {{ user.username }}!</h1>
+        <p>Your Profile Details</p>
+      </div>
+
+      <div class="profile-details">
+        <div class="profile-info">
+          <h3>Name: {{ user.first_name }} {{ user.last_name }}</h3>
+          <p>Email: {{ user.email }}</p>
+          <p>Username: {{ user.username }}</p>
+          <p>Last Login: {{ last_login|date:"D, d M Y H:i:s" }}</p>
+        </div>
+
+        <div class="profile-actions">
+          <a href="{% url 'change_password' %}" class="btn">Change Password</a>
+          <a href="{% url 'logout' %}" class="btn logout">Logout</a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html> -->
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profile Overview</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <section class="profile-section">
+        <header class="profile-header">
+            <h2 class="greeting-text">Hello, {{ user.username }}!</h2>
+            <p class="subtitle">View your account details below</p>
+        </header>
+
+        <div class="profile-info-section">
+            <div class="user-details">
+                <h3 class="user-name">Full Name: {{ user.first_name }} {{ user.last_name }}</h3>
+                <p class="user-email">Email: {{ user.email }}</p>
+                <p class="user-username">Username: {{ user.username }}</p>
+                <p class="last-login">Last Login: {{ last_login|date:"D, d M Y H:i:s" }}</p>
+            </div>
+
+            <div class="action-buttons">
+                <a href="{% url 'change_password' %}" class="action-btn">Update Password</a>
+                <a href="{% url 'logout' %}" class="action-btn logout-btn">Sign Out</a>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
+

@@ -1,0 +1,52 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign In</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <section class="login-container">
+        <h2 class="login-title">Sign In to Your Account</h2>
+
+        <!-- Display error messages -->
+        {% if messages %}
+        <div class="message-container">
+            {% for message in messages %}
+            <div class="alert-box {{ message.tags }}">{{ message }}</div>
+            {% endfor %}
+        </div>
+        {% endif %}
+
+        <form method="post" class="login-form">
+            {% csrf_token %}
+            <div class="input-field">
+                <label for="username_or_email" class="label-text">Username or Email</label>
+                <input
+                    type="text"
+                    id="username_or_email"
+                    name="username_or_email"
+                    class="input-box"
+                    placeholder="Enter your username or email"
+                    required
+                />
+            </div>
+            <div class="input-field">
+                <label for="password" class="label-text">Password</label>
+                <input type="password" id="password" name="password" class="input-box" placeholder="Enter your password" required />
+            </div>
+            <button type="submit" class="login-button">Sign In</button>
+        </form>
+
+        <div class="auth-links">
+            <p>
+                <a href="{% url 'signup' %}" class="link">Don't have an account? Sign Up</a> |
+                <a href="{% url 'forgot_password' %}" class="link">Forgot Password?</a>
+            </p>
+        </div>
+    </section>
+</body>
+</html>
